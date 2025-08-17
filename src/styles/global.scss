@@ -86,10 +86,11 @@ body {
     text-decoration: none;
     border: none;
     font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
-        gap: 10px;
-        text-decoration: none;
+        transform: translateY(-12px);
+        box-shadow: 0 16px 12px rgba(145, 77, 161, 0.4);
     }
 }
 

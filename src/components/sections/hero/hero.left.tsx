@@ -1,14 +1,28 @@
-import Typewriter from 'typewriter-effect'
-import SocialMedia from 'components/sections/social.media'
-import { useTranslation } from 'react-i18next'
-import './hero.scss'
-import ResizeButton from 'components/sections/resize.button'
-import { APP_DATA } from 'helpers/data'
-import { MdFileDownload } from 'react-icons/md'
-import { AiFillFire } from 'react-icons/ai'
+import Typewriter from 'typewriter-effect';
+import SocialMedia from '@/components/sections/social.media';
+import { useTranslation } from 'react-i18next';
+import './hero.scss';
+import ResizeButton from 'components/sections/resize.button';
+import { APP_DATA } from 'helpers/data';
+import { MdFileDownload } from 'react-icons/md';
+import { AiFillFire } from 'react-icons/ai';
 
-const HeroLeft = () => {
-    const { t } = useTranslation()
+interface Iprops {
+    scrollExperienceSection: () => void;
+}
+const HeroLeft = (props: Iprops) => {
+    const { t } = useTranslation();
+
+    const openInNewTab = (url: string): void => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+        if (newWindow) newWindow.opener = null;
+    };
+
+    const handleDownload = () => {
+        openInNewTab(
+            'https://drive.google.com/file/d/1aczc__zMXnQid5p1zLN0gR7ArgQMJ0N8/view?usp=sharing'
+        );
+    };
 
     return (
         <div className="hero-left">
@@ -46,6 +60,7 @@ const HeroLeft = () => {
             </div>
             <div className="d-md-flex d-none gap-4">
                 <ResizeButton
+                    onClick={props.scrollExperienceSection}
                     btnText={t('heroSection.exp')}
                     btnIcons={<AiFillFire style={{ color: 'orange' }} />}
                     btnStyle={{
@@ -57,10 +72,11 @@ const HeroLeft = () => {
                 <ResizeButton
                     btnText={t('heroSection.cv')}
                     btnIcons={<MdFileDownload />}
+                    onClick={handleDownload}
                 />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default HeroLeft
+export default HeroLeft;
