@@ -1,8 +1,8 @@
 $spacer: 1rem;
 $spacers: (
     0: 0,
-    1: $spacer * .25,
-    2: $spacer * .5,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
     3: $spacer,
     4: $spacer * 1.5,
     5: $spacer * 3,
@@ -12,7 +12,7 @@ $spacers: (
 // @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 @import 'bootstrap/scss/bootstrap.scss';
 @import './animation.scss';
-@import "./variable.scss";
+@import './variable.scss';
 
 * {
     margin: 0;
@@ -28,12 +28,12 @@ $spacers: (
 }
 
 a {
+    color: currentColor;
+    text-decoration: none;
     &.highlight {
         color: var(--brand-social);
     }
-
 }
-
 
 body {
     background-color: var(--background-body);
@@ -127,7 +127,6 @@ body {
     display: none;
 }
 
-
 .project-card {
     padding-top: 50px !important;
     padding-bottom: 50px !important;
@@ -149,7 +148,6 @@ body {
         border-color: var(--brand-social);
     }
 }
-
 
 .blog-card {
     padding-top: 50px !important;

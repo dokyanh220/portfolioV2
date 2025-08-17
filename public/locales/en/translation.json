@@ -1,6 +1,6 @@
 {
     "appHeader": {
-        "brand": "Hoi Dan IT",
+        "brand": "Do Ky Anh",
         "home": "Home",
         "project": "Project",
         "contact": "Contact",
@@ -8,7 +8,7 @@
     },
     "heroSection": {
         "exp": "My Skill",
-        "cv": "Get Resume"
+        "cv": "Get CV"
     },
     "introSection": {
         "about": "About me",
