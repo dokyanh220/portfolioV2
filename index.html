@@ -4,6 +4,29 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/png" href="/IMG_1871.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Script để tránh flash theme và đặt mặc định dark -->
+        <script>
+            (function () {
+                try {
+                    const theme = localStorage.getItem('theme') || 'dark';
+                    document.documentElement.setAttribute(
+                        'data-bs-theme',
+                        theme
+                    );
+                    if (!localStorage.getItem('theme')) {
+                        localStorage.setItem('theme', 'dark');
+                    }
+                } catch (e) {
+                    console.error('Could not set theme:', e);
+                    document.documentElement.setAttribute(
+                        'data-bs-theme',
+                        'dark'
+                    );
+                }
+            })();
+        </script>
+
         <!-- SEO META -->
         <meta
             name="description"

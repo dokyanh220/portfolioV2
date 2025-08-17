@@ -23,7 +23,11 @@ export const AppContextProvider = ({
         const mode = localStorage.getItem('theme');
         if (mode === 'light' || mode === 'dark') {
             setTheme(mode);
+            document.documentElement.setAttribute('data-bs-theme', mode);
+        } else {
+            // Nếu không có theme trong localStorage, đặt mặc định là 'dark'
             document.documentElement.setAttribute('data-bs-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
         }
     }, []);
 
