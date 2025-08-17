@@ -1,15 +1,14 @@
-import React from 'react'
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { CgWebsite } from 'react-icons/cg'
-import { BsGithub } from 'react-icons/bs'
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import { CgWebsite } from 'react-icons/cg';
+import { BsGithub } from 'react-icons/bs';
 
 interface Iprops {
-    imgPath: string
-    title: string
-    description: string
-    githubLink: string
-    demoLink: string
+    imgPath: string;
+    title: string;
+    description: string;
+    githubLink: string;
+    demoLink: string;
 }
 function ProjectCard(props: Iprops) {
     return (
@@ -33,6 +32,7 @@ function ProjectCard(props: Iprops) {
                             target="_blank"
                         >
                             <BsGithub /> &nbsp;
+                            {'Source'}
                         </Button>
 
                         <Button
@@ -48,6 +48,6 @@ function ProjectCard(props: Iprops) {
                 </div>
             </Card.Body>
         </Card>
-    )
+    );
 }
-export default ProjectCard
+export default ProjectCard;

@@ -1,42 +1,50 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from 'react';
 
 interface IAppContext {
     theme: ThemeContextType;
-    setTheme: (v: ThemeContextType) => void
+    setTheme: (v: ThemeContextType) => void;
 }
-type ThemeContextType = "light" | "dark";
+type ThemeContextType = 'light' | 'dark';
 
 const AppContext = createContext<IAppContext | null>(null);
 
-export const AppContextProvider = ({children}: {children: React.ReactNode}) => {
+export const AppContextProvider = ({
+    children,
+}: {
+    children: React.ReactNode;
+}) => {
     const [theme, setTheme] = useState<ThemeContextType>(() => {
-        const initialTheme  = localStorage.getItem("theme") as ThemeContextType || "dark";
+        const initialTheme =
+            (localStorage.getItem('theme') as ThemeContextType) || 'dark';
         return initialTheme;
     });
 
     useEffect(() => {
-        const mode = localStorage.getItem("theme");
-        if (mode === "light" || mode === "dark") {
+        const mode = localStorage.getItem('theme');
+        if (mode === 'light' || mode === 'dark') {
             setTheme(mode);
-            document.documentElement.setAttribute('data-bs-theme', mode);
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
         }
-    }, [])
+    }, []);
 
     return (
-        <AppContext.Provider value={{
-            theme, setTheme
-        }}>
+        <AppContext.Provider
+            value={{
+                theme,
+                setTheme,
+            }}
+        >
             {children}
         </AppContext.Provider>
     );
-}
+};
 
 export const useCurrentApp = () => {
     const currentAppContext = useContext(AppContext);
 
     if (!currentAppContext) {
         throw new Error(
-            "useCurrentApp has to be used within <AppContext.Provider>"
+            'useCurrentApp has to be used within <AppContext.Provider>'
         );
     }
 
