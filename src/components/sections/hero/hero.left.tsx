@@ -13,15 +13,14 @@ interface Iprops {
 const HeroLeft = (props: Iprops) => {
     const { t } = useTranslation();
 
-    const openInNewTab = (url: string): void => {
-        const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-        if (newWindow) newWindow.opener = null;
-    };
-
     const handleDownload = () => {
-        openInNewTab(
-            'https://drive.google.com/file/d/1aczc__zMXnQid5p1zLN0gR7ArgQMJ0N8/view?usp=sharing'
-        );
+        const link = document.createElement('a');
+        link.href = '/DoKyAnh_CV.pdf';
+        link.download = 'DoKyAnh_CV.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
 
     return (
@@ -58,7 +57,8 @@ const HeroLeft = (props: Iprops) => {
                     github={APP_DATA.GITHUB_URL}
                 />
             </div>
-            <div className="d-md-flex d-none gap-4">
+
+            <div className="d-none d-md-flex gap-4">
                 <ResizeButton
                     onClick={props.scrollExperienceSection}
                     btnText={t('heroSection.exp')}
