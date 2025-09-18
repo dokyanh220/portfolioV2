@@ -1,4 +1,6 @@
 import portfolioV1IMG from 'assets/project/portfolioV1IMG.png';
+import chatbot from 'assets/project/chatbot.jpg';
+import crud from 'assets/project/crud.webp'
 
 export const APP_DATA = {
     YOUTUBE_URL: 'https://www.youtube.com/@dokyanh220',
@@ -66,6 +68,24 @@ export const PROJECTS = [
         githubLink: 'https://github.com/dokyanh220/portfolio',
         demoLink: 'https://dokyanh220.github.io/portfolio/',
     },
+    {
+        id: 2,
+        imgPath: chatbot,
+        title: 'Chat bot Ahihi',
+        description:
+            'Chat Ahihi is a fun and friendly AI chatbot application. It’s designed to create natural conversations, support learning, entertainment, and quick Q&A. With a simple and modern interface, the app makes chatting with an AI feel like talking to a witty and helpful virtual friend.',
+        githubLink: 'https://github.com/dokyanh220/chatAhihi',
+        demoLink: 'https://chat-ahihi.vercel.app',
+    },
+    {
+        id: 3,
+        imgPath: crud,
+        title: 'CRUD with MERN',
+        description:
+            'Create, Read, Update, Delete',
+        githubLink: 'https://github.com/dokyanh220/crud-mern',
+        demoLink: ''
+    }
 ];
 
 export const SKILLS_DATA = [
