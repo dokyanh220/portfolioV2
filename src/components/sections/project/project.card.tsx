@@ -17,7 +17,7 @@ function ProjectCard(props: Iprops) {
                 variant="top"
                 src={props.imgPath}
                 alt="card-img"
-                style={{ maxHeight: 215 }}
+                style={{ height: 215 }}
             />
             <Card.Body className="d-flex flex-column">
                 <Card.Title>{props.title}</Card.Title>
@@ -37,9 +37,14 @@ function ProjectCard(props: Iprops) {
 
                         <Button
                             variant="primary"
-                            href={props.demoLink}
+                            href={props.demoLink || ''}
                             target="_blank"
-                            style={{ marginLeft: '10px' }}
+                            style={{
+                                marginLeft: '10px',
+                                opacity: props.demoLink ? 1 : 0.5,
+                                pointerEvents: props.demoLink ? 'auto' : 'none',
+                            }}
+                            disabled={!props.demoLink}
                         >
                             <CgWebsite /> &nbsp;
                             {'Demo'}

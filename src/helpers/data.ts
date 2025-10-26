@@ -1,6 +1,8 @@
 import portfolioV1IMG from 'assets/project/portfolioV1IMG.png';
 import chatbot from 'assets/project/chatbot.jpg';
-import crud from 'assets/project/crud.webp'
+import crud from 'assets/project/crud.webp';
+import trello from 'assets/project/trello-1.jpg';
+import cv from 'assets/project/cv.png';
 
 export const APP_DATA = {
     YOUTUBE_URL: 'https://www.youtube.com/@dokyanh220',
@@ -66,7 +68,7 @@ export const PROJECTS = [
         description:
             'This is the first personal project I created right after learning HTML, CSS, and JavaScript.',
         githubLink: 'https://github.com/dokyanh220/portfolio',
-        demoLink: 'https://dokyanh220.github.io/portfolio/',
+        demoLink: '',
     },
     {
         id: 2,
@@ -81,11 +83,27 @@ export const PROJECTS = [
         id: 3,
         imgPath: crud,
         title: 'CRUD with MERN',
-        description:
-            'Create, Read, Update, Delete',
+        description: 'Create, Read, Update, Delete',
         githubLink: 'https://github.com/dokyanh220/crud-mern',
-        demoLink: ''
-    }
+        demoLink: '',
+    },
+    {
+        id: 4,
+        imgPath: trello,
+        title: 'Trello web clone',
+        description: 'Build a plan, drag-and-drop operation',
+        githubLink: 'https://github.com/dokyanh220/trelloWeb',
+        demoLink: 'https://trello-dokkyanh.vercel.app/',
+    },
+    {
+        id: 5,
+        imgPath: cv,
+        title: 'My CV',
+        description:
+            "I'm just a newbie who likes to learn and is passionate about programming",
+        githubLink: 'https://github.com/dokyanh220/cv-dokyanh',
+        demoLink: 'https://cv.anhdo.io.vn/',
+    },
 ];
 
 export const SKILLS_DATA = [
@@ -97,18 +115,13 @@ export const SKILLS_DATA = [
     'Next JS',
     'Tailwind',
     'MongoDB',
-    'MySQL',
-    'PostgreSQL',
+    'MSSQL',
     'Git',
-    'AWS',
     'Bootstrap',
     'Docker',
     'Go',
     'Figma',
-    'Firebase',
     'MaterialUI',
-    'Nginx',
-    'Strapi',
 ];
 
 // Choose your skills from below. Make sure it's in the same format and spelled correctly.

@@ -1,24 +1,24 @@
-import { Col, Container, Row } from 'react-bootstrap'
-import HeroLeft from '../components/sections/hero/hero.left'
-import HeroRight from '../components/sections/hero/hero.right'
-import { MdFileDownload } from 'react-icons/md'
-import bg from '../assets/section.svg'
-import Introduction from '../components/sections/introduction'
-import ResizeButton from '../components/sections/resize.button'
-import { useTranslation } from 'react-i18next'
-import Divider from '../components/sections/divider'
-import Experience from '../components/sections/experience'
-import Skill from '../components/sections/skill'
-import { useRef } from 'react'
+import { Col, Container, Row } from 'react-bootstrap';
+import HeroLeft from '../components/sections/hero/hero.left';
+import HeroRight from '../components/sections/hero/hero.right';
+import { MdFileDownload } from 'react-icons/md';
+import bg from '../assets/section.svg';
+import Introduction from '../components/sections/introduction';
+import ResizeButton from '../components/sections/resize.button';
+import { useTranslation } from 'react-i18next';
+import Divider from '../components/sections/divider';
+import Experience from '../components/sections/experience';
+import Skill from '../components/sections/skill';
+import { useRef } from 'react';
 
 const HomePage = () => {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
 
-    const expRef = useRef<HTMLDivElement>(null)
+    const expRef = useRef<HTMLDivElement>(null);
 
     const scrollExperienceSection = () => {
-        expRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+        expRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
 
     return (
         <div className="homepage-screen">
@@ -36,14 +36,14 @@ const HomePage = () => {
             <section className="mt-md-7 mt-2">
                 <Container style={{ position: 'relative' }}>
                     <Row>
-                        <Col className="d-none d-md-block" md={6}>
+                        <Col className="d-none d-md-block" md={5}>
                             <HeroLeft
                                 scrollExperienceSection={
                                     scrollExperienceSection
                                 }
                             />
                         </Col>
-                        <Col md={6}>
+                        <Col md={7} className="p-0">
                             <HeroRight />
                         </Col>
                         <Col
@@ -76,7 +76,7 @@ const HomePage = () => {
                 </Container>
             </section>
         </div>
-    )
-}
+    );
+};
 
-export default HomePage
+export default HomePage;

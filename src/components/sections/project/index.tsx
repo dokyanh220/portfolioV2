@@ -1,6 +1,6 @@
-import { Col, Row } from 'react-bootstrap'
-import ProjectCard from './project.card'
-import { PROJECTS } from 'helpers/data'
+import { Col, Row } from 'react-bootstrap';
+import ProjectCard from './project.card';
+import { PROJECTS } from 'helpers/data';
 
 const Project = () => {
     return (
@@ -15,7 +15,12 @@ const Project = () => {
                     </h6>
                 </Col>
             </Row>
-            <Row style={{ justifyContent: 'center', paddingBottom: '10px' }}>
+            <Row
+                style={{
+                    justifyContent: 'flex-start',
+                    paddingBottom: '10px',
+                }}
+            >
                 {PROJECTS?.map((item) => {
                     return (
                         <Col md={4} className="project-card" key={item.id}>
@@ -27,12 +32,12 @@ const Project = () => {
                                 demoLink={item.demoLink}
                             />
                         </Col>
-                    )
+                    );
                 })}
             </Row>
             <div className="mb-7"></div>
         </>
-    )
-}
+    );
+};
 
-export default Project
+export default Project;

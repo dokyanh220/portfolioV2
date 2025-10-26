@@ -1,98 +1,131 @@
+import { useState, useEffect } from 'react';
+import MDEditor from '@uiw/react-md-editor';
 import './hero.scss';
+import { FaCode } from 'react-icons/fa6';
+import { IoReturnDownBack } from 'react-icons/io5';
 
-const HeroRight = () => {
+const defaultSkills = `\`\`\`js
+export const dokyanhDEV = {
+  name: "Đỗ Kỳ Anh",
+  alias: "Bin / KyAnh",
+  role: "Fullstack Developer",
+  location: "VietNam.HoChiMinh",
+  
+  programmingLanguages: ["C/C++", "ESMAScript", "HTML/Css", "PHP", "Python"],
+
+  stack: {
+    frontend: ["React", "Next.js", "TailwindCSS", "MaterialUI"],
+    backend: ["Node.js", "ExpressJS", "Axios", "Payload CMS", "NestJS"],
+    database: ["MongoDB", "MSSQL", "SQL Server"]
+  },
+
+  tools: ["VS Code", "Postman", "SQL Server", "MongoDB Compass", "Figma",  "Git", "Vercel"],
+
+  currentlyLearning: [
+    "Advanced Website Development",
+    "Next.js 15 & React Server Components",
+    "AI + API Integration",
+  ],
+
+  experience: {
+    yearsOfCoding: 1,
+  },
+
+  motto: "Make things work on internet. Then make them more beautiful.",
+
+  strengths: ["Problem Solving", "Fast Learning", "System Thinking"],
+
+  introduce() {
+    console.log(\`
+        Hi there! I'm \${this.name}, a passionate \${this.role} based in \${this.location}.
+        I love turning ideas into reality using code.
+    \`);
+  },
+
+  goal() {
+    console.log("🚀 Goal: Build useful, scalable apps that make people’s lives easier.");
+  },
+};
+
+dokyanhDEV.introduce();
+dokyanhDEV.goal();
+\`\`\``;
+
+const HeroRight: React.FC = () => {
+    const [colorMode, setColorMode] = useState<'dark' | 'light'>(
+        window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light'
+    );
+
+    useEffect(() => {
+        const listener = (e: MediaQueryListEvent) => {
+            setColorMode(e.matches ? 'dark' : 'light');
+        };
+        const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
+        matchMedia.addEventListener('change', listener);
+        return () => matchMedia.removeEventListener('change', listener);
+    }, []);
+
+    const [value, setValue] = useState<string>(defaultSkills);
+    const [editMode, setEditMode] = useState(false);
+    const [hovered, setHovered] = useState(false);
 
     return (
-        <div className='hero-right'>
-            <div className='border-top'></div>
-            <div className='first'>
-                <div className='circle bg-first'></div>
-                <div className='circle bg-second'></div>
-                <div className='circle bg-third'></div>
+        <div className={`hero-right mode-${colorMode}`}>
+            <div className="border-top"></div>
+            <div className="first">
+                <div className="circle bg-first"></div>
+                <div className="circle bg-second"></div>
+                <div className="circle bg-third"></div>
             </div>
-            <div className='second'>
-                <code className="text-white-0">
-                    <div>
-                        <span className="me-2 text-pink-100">const</span>
-                        <span className="me-2">developer</span>
-                        <span className="me-2 text-pink-100">=</span>
-                        <span>{'{'}</span>
-                    </div>
-                    <div>
-                        <span className="ms-4 me-2">name:</span>
-                        <span className='text-yellow-500'>
-                            {`'`}Đỗ Kỳ Anh{`',`}
-                        </span>
-                    </div>
-                    <div className="ms-4 me-2 text-pink-200">
-                        <span className="text-white-0">skills:</span>
-                        <span>{`['`}</span>
-                        <span >React</span>
-                        <span>{"', '"}</span>
-                        <span >Redux</span>
-                        <span>{"', '"}</span>
-                        <span >NextJS</span>
-                        <span>{"', '"}</span>
-                        <span >Java Spring</span>
-                        <span>{"', '"}</span>
-                        <span >NestJS</span>
-                        <span>{"', '"}</span>
-                        <span >NoSQL</span>
-                        <span>{"', '"}</span>
-                        <span >SQL</span>
-                        <span>{"', '"}</span>
-                        <span >Docker</span>
-                        <span>{"', '"}</span>
-                        <span >K8S</span>
-                        <span>{"'],"}</span>
-                    </div>
-                    <div>
-                        <span className="ms-4  me-2 ">hardWorker:</span>
-                        <span className="text-red-500">true</span>
-                        <span>,</span>
-                    </div>
-                    <div>
-                        <span className="ms-4  me-2 ">quickLearner:</span>
-                        <span className="text-red-500">true</span>
-                        <span>,</span>
-                    </div>
-                    <div>
-                        <span className="ms-4 me-2 ">problemSolver:</span>
-                        <span className="text-red-500">true</span>
-                        <span>,</span>
-                    </div>
-                    <div>
-                        <span className="ms-4 me-2 text-green-700">hireable:</span>
-                        <span className="text-red-500">function</span>
-                        <span>{'() {'}</span>
-                    </div>
-                    <div>
-                        <span className="ms-5 me-2 text-red-500">return</span>
-                        <span>{`(`}</span>
-                    </div>
-                    <div>
-                        <span className="ms-5 ps-3 text-blue-100">this.</span>
-                        <span className="me-2 ">hardWorker</span>
-                        <span className='text-blue-100'>&amp;&amp;</span>
-                    </div>
-                    <div>
-                        <span className="ms-5 ps-3 text-blue-100">this.</span>
-                        <span className="me-2 ">problemSolver</span>
-                        <span className='text-blue-100'>&amp;&amp;</span>
-                    </div>
-                    <div>
-                        <span className="ms-5 ps-3 text-blue-100">this.</span>
-                        <span className="me-2">skills.length</span>
-                        <span className="me-2 text-blue-100">&gt;=</span>
-                        <span className="text-red-500">5</span>
-                    </div>
-                    <div><span className="ms-5 me-2 ">{`);`}</span></div>
-                    <div><span className="ms-4">{`};`}</span></div>
-                    <div><span>{`};`}</span></div>
-                </code>
+            <div
+                className="second md-editor-hover-area"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                style={{ position: 'relative' }}
+            >
+                {hovered && !editMode && (
+                    <button
+                        className="edit-btn"
+                        onClick={() => setEditMode(true)}
+                        aria-label="Edit Markdown"
+                        type="button"
+                    >
+                        <FaCode size={16} />
+                    </button>
+                )}
+                <MDEditor
+                    value={value}
+                    onChange={(val) => setValue(val || '')}
+                    height={400}
+                    visiableDragbar={false}
+                    data-color-mode={colorMode}
+                    preview={editMode ? 'edit' : 'preview'}
+                    hideToolbar={!editMode}
+                    style={{
+                        background: 'transparent',
+                        color: 'inherit',
+                        border: 'none',
+                        fontSize: 15,
+                        minHeight: 250,
+                    }}
+                />
+                {/* Khi ở chế độ edit, hiển thị nút "Đóng" để quay lại preview */}
+                {editMode && (
+                    <button
+                        className="close-btn"
+                        onClick={() => setEditMode(false)}
+                        aria-label="Close Edit"
+                        type="button"
+                    >
+                        <IoReturnDownBack size={16} />
+                    </button>
+                )}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default HeroRight;
