@@ -1,4 +1,8 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Ngăn bot index mấy thư mục kỹ thuật (nếu có)
+Disallow: /node_modules/
+Disallow: /src/
 
 Sitemap: https://anhdo.io.vn/sitemap.xml
