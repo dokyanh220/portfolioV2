@@ -5,6 +5,20 @@
         <link rel="icon" type="image/png" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        <!-- Né regex ios đời thấp -->
+        <script>
+            try {
+                new RegExp('(?<test>abc)');
+            } catch (e) {
+                const OldRegExp = RegExp;
+                window.RegExp = function (pattern, flags) {
+                    if (typeof pattern === 'string')
+                        pattern = pattern.replace(/\(\?<[^>]+>/g, '(');
+                    return new OldRegExp(pattern, flags);
+                };
+            }
+        </script>
+
         <script>
             (function () {
                 try {

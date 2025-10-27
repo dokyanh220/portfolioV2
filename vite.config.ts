@@ -13,4 +13,7 @@ export default defineConfig({
             priority: 1.0,
         }),
     ],
+    build: {
+        target: 'es2017',
+    },
 });

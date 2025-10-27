@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 import Divider from '../components/sections/divider';
 import Experience from '../components/sections/experience';
 import Skill from '../components/sections/skill';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const HomePage = () => {
     const { t } = useTranslation();
@@ -19,6 +19,18 @@ const HomePage = () => {
     const scrollExperienceSection = () => {
         expRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
+
+    // Không cần render trên mobile luôn
+    function useIsMdUp() {
+        const [isMdUp, setIsMdUp] = useState(() => window.innerWidth >= 768);
+        useEffect(() => {
+            const handler = () => setIsMdUp(window.innerWidth >= 768);
+            window.addEventListener('resize', handler);
+            return () => window.removeEventListener('resize', handler);
+        }, []);
+        return isMdUp;
+    }
+    const isMdUp = useIsMdUp();
 
     return (
         <div className="homepage-screen">
@@ -44,7 +56,7 @@ const HomePage = () => {
                             />
                         </Col>
                         <Col md={7} className="p-0">
-                            <HeroRight />
+                            {isMdUp && <HeroRight />}
                         </Col>
                         <Col
                             xs={12}
