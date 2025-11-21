@@ -107,8 +107,7 @@ export const PROJECTS = [
 ];
 
 export const SKILLS_DATA = [
-    'HTML',
-    'CSS',
+    'PHP',
     'Javascript',
     'Typescript',
     'React',
@@ -118,8 +117,6 @@ export const SKILLS_DATA = [
     'MSSQL',
     'Git',
     'Bootstrap',
-    'Docker',
-    'Go',
     'Figma',
     'MaterialUI',
 ];

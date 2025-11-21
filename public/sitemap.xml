@@ -51,4 +51,12 @@
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
+
+   <!-- Trang CV -->
+   <url>
+    <loc>https://cv.anhdo.io.vn/</loc>
+    <lastmod>2025-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
 </urlset>
