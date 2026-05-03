@@ -31,7 +31,8 @@
         "react-parallax-tilt": "1.7.246",
         "react-router-dom": "6.27.0",
         "typewriter-effect": "2.21.0",
-        "vite-plugin-sitemap": "^0.8.2"
+        "vite-plugin-sitemap": "^0.8.2",
+        "framer-motion": "^11.0.0"
     },
     "devDependencies": {
         "@eslint/js": "9.12.0",

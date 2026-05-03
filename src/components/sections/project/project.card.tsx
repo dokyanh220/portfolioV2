@@ -9,10 +9,17 @@ interface Iprops {
     description: string;
     githubLink: string;
     demoLink: string;
+    date?: string;
+    onClick?: () => void;
 }
+
 function ProjectCard(props: Iprops) {
     return (
-        <Card className="project-card-view">
+        <Card
+            className="project-card-view"
+            onClick={props.onClick}
+            style={{ cursor: props.onClick ? 'pointer' : 'default' }}
+        >
             <Card.Img
                 variant="top"
                 src={props.imgPath}
@@ -21,6 +28,9 @@ function ProjectCard(props: Iprops) {
             />
             <Card.Body className="d-flex flex-column">
                 <Card.Title>{props.title}</Card.Title>
+                {props.date && (
+                    <small className="text-muted" style={{ marginBottom: '4px' }}>{props.date}</small>
+                )}
                 <div className="d-flex flex-column justify-content-between h-100">
                     <Card.Text style={{ textAlign: 'justify' }}>
                         {props.description}
@@ -30,6 +40,7 @@ function ProjectCard(props: Iprops) {
                             variant="primary"
                             href={props.githubLink}
                             target="_blank"
+                            onClick={e => e.stopPropagation()}
                         >
                             <BsGithub /> &nbsp;
                             {'Source'}
@@ -45,6 +56,7 @@ function ProjectCard(props: Iprops) {
                                 pointerEvents: props.demoLink ? 'auto' : 'none',
                             }}
                             disabled={!props.demoLink}
+                            onClick={e => e.stopPropagation()}
                         >
                             <CgWebsite /> &nbsp;
                             {'Demo'}
@@ -55,4 +67,5 @@ function ProjectCard(props: Iprops) {
         </Card>
     );
 }
+
 export default ProjectCard;

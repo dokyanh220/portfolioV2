@@ -3,6 +3,7 @@ import MDEditor from '@uiw/react-md-editor';
 import './hero.scss';
 import { FaCode } from 'react-icons/fa6';
 import { IoReturnDownBack } from 'react-icons/io5';
+import { motion } from 'framer-motion';
 
 const defaultSkills = `\`\`\`js
 export const dokyanhDEV = {
@@ -73,7 +74,12 @@ const HeroRight: React.FC = () => {
     const [hovered, setHovered] = useState(false);
 
     return (
-        <div className={`hero-right mode-${colorMode}`}>
+        <motion.div
+            className={`hero-right mode-${colorMode}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+        >
             <div className="border-top"></div>
             <div className="first">
                 <div className="circle bg-first"></div>
@@ -124,7 +130,7 @@ const HeroRight: React.FC = () => {
                     </button>
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 };
 

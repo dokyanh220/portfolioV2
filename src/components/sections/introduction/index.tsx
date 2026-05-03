@@ -42,7 +42,7 @@ const Introduction = () => {
                         <i>
                             <b className="text-pink-100">
                                 {' '}
-                                Java {t('introSection.and')} Javascript.{' '}
+                                React.js {t('introSection.and')} Javascript.{' '}
                             </b>
                         </i>
                         <br />
@@ -57,7 +57,7 @@ const Introduction = () => {
                         <br />
                         {t('introSection.heading5')}
                         <i>
-                            <b className="text-pink-100">&nbsp;Java Spring</b>{' '}
+                            <b className="text-pink-100">&nbsp;React.js</b>{' '}
                         </i>
                         {t('introSection.and')}
                         <i>

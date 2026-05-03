@@ -30,6 +30,7 @@ $spacers: (
 a {
     color: currentColor;
     text-decoration: none;
+
     &.highlight {
         color: var(--brand-social);
     }
@@ -280,3 +281,65 @@ body {
 //     font-weight: 500 !important;
 //     padding-top: 10px !important;
 // }
+
+/* wrapper */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* input */
+.search-input {
+    flex: 1;
+
+    padding: 10px 14px;
+    border-radius: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+
+    color: #fff;
+    outline: none;
+
+    transition: all 0.25s ease;
+}
+
+/* focus */
+.search-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* button (nổi bật + tách rời) */
+.search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 12px;
+    border: none;
+
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+
+/* hover */
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.5);
+}
+
+/* active */
+.search-btn:active {
+    transform: scale(0.95);
+}

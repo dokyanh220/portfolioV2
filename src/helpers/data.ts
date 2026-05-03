@@ -3,6 +3,10 @@ import chatbot from 'assets/project/chatbot.jpg';
 import crud from 'assets/project/crud.webp';
 import trello from 'assets/project/trello-1.jpg';
 import cv from 'assets/project/cv.png';
+import moji from 'assets/project/moji.png';
+import caro from 'assets/project/caro.png';
+import kpik from 'assets/project/kpik.png';
+import ocr from 'assets/project/ocr.png';
 
 export const APP_DATA = {
     YOUTUBE_URL: 'https://www.youtube.com/@dokyanh220',
@@ -60,41 +64,17 @@ export const EXPERIENCES = [
     },
 ];
 
-export const PROJECTS = [
-    {
-        id: 1,
-        imgPath: portfolioV1IMG,
-        title: 'Portfolio with HTML/CSS & JAVASCRIPT',
-        description:
-            'This is the first personal project I created right after learning HTML, CSS, and JavaScript.',
-        githubLink: 'https://github.com/dokyanh220/portfolio',
-        demoLink: '',
-    },
-    {
-        id: 2,
-        imgPath: chatbot,
-        title: 'Chat bot Ahihi',
-        description:
-            'Chat Ahihi is a fun and friendly AI chatbot application. It’s designed to create natural conversations, support learning, entertainment, and quick Q&A. With a simple and modern interface, the app makes chatting with an AI feel like talking to a witty and helpful virtual friend.',
-        githubLink: 'https://github.com/dokyanh220/chatAhihi',
-        demoLink: 'https://chat-ahihi.vercel.app',
-    },
-    {
-        id: 3,
-        imgPath: crud,
-        title: 'CRUD with MERN',
-        description: 'Create, Read, Update, Delete',
-        githubLink: 'https://github.com/dokyanh220/crud-mern',
-        demoLink: '',
-    },
-    {
-        id: 4,
-        imgPath: trello,
-        title: 'Trello web clone',
-        description: 'Build a plan, drag-and-drop operation',
-        githubLink: 'https://github.com/dokyanh220/trelloWeb',
-        demoLink: 'https://trello-dokkyanh.vercel.app/',
-    },
+export interface IProject {
+    id: number;
+    imgPath: string;
+    title: string;
+    description: string;
+    githubLink: string;
+    demoLink: string;
+    date: string;
+}
+
+export const PROJECTS: IProject[] = [
     {
         id: 5,
         imgPath: cv,
@@ -103,8 +83,124 @@ export const PROJECTS = [
             "I'm just a newbie who likes to learn and is passionate about programming",
         githubLink: 'https://github.com/dokyanh220/cv-dokyanh',
         demoLink: 'https://cv.anhdo.io.vn/',
+        date: '20-11-2025'
     },
+    {
+        id: 4,
+        imgPath: trello,
+        title: 'Trello web clone',
+        description: 'Build a plan, drag-and-drop operation',
+        githubLink: 'https://github.com/dokyanh220/trelloWeb',
+        demoLink: 'https://trello-dokkyanh.vercel.app/',
+        date: '01-10-2025'
+    },
+    {
+        id: 3,
+        imgPath: crud,
+        title: 'CRUD with MERN',
+        description: 'Create, Read, Update, Delete',
+        githubLink: 'https://github.com/dokyanh220/crud-mern',
+        demoLink: '',
+        date: '10-09-2025'
+    },
+    {
+        id: 2,
+        imgPath: chatbot,
+        title: 'Chat bot Ahihi',
+        description:
+            `Chat Ahihi is a fun and friendly AI chatbot application. It's designed to create natural conversations, support learning, entertainment, and quick Q&A. With a simple and modern interface, the app makes chatting with an AI feel like talking to a witty and helpful virtual friend.`,
+        githubLink: 'https://github.com/dokyanh220/chatAhihi',
+        demoLink: '',
+        date: '19-08-2025'
+    },
+    {
+        id: 1,
+        imgPath: portfolioV1IMG,
+        title: 'Portfolio with HTML/CSS & JAVASCRIPT',
+        description:
+            'This is the first personal project I created right after learning HTML, CSS, and JavaScript.',
+        githubLink: 'https://github.com/dokyanh220/portfolio',
+        demoLink: '',
+        date: '06-05-2025'
+    },
+    {
+        id: 6,
+        title: "WebApp RealTime MOJI",
+        description: "MOJI là ứng dụng nhắn tin realtime với giao diện hiện đại, được xây dựng bằng React + Tailwind CSS ở frontend và Node.js + Socket.IO ở backend. Ứng dụng cho phép gửi/nhận tin nhắn tức thì, hiển thị trạng thái online và mang lại trải nghiệm trò chuyện mượt mà, gần như không độ trễ.",
+        imgPath: moji,
+        githubLink: "https://github.com/dokyanh220/Moji",
+        demoLink: "",
+        date: "2025-10-31"
+    },
+    {
+        id: 7,
+        title: "Game cờ caro",
+        description: "Caro Game là ứng dụng trò chơi cờ caro (tic-tac-toe mở rộng) được phát triển bằng Java, hỗ trợ cả chế độ chơi 2 người và chơi với AI. Người chơi có thể thi đấu trực tiếp trên cùng một máy hoặc thử thách với máy tính được tích hợp thuật toán xử lý nước đi thông minh. Ứng dụng có giao diện trực quan, dễ sử dụng, cho phép đánh dấu lượt chơi rõ ràng và kiểm tra thắng/thua theo luật 5 quân liên tiếp.",
+        imgPath: caro,
+        githubLink: "https://github.com/dokyanh220/caro_game",
+        demoLink: "",
+        date: "2026-03-10"
+    },
+    {
+        id: 8,
+        title: "K-PIK Tải xuống video ảnh",
+        description: "K-PIK là công cụ tải xuống video và hình ảnh từ nhiều nền tảng mạng xã hội như Instagram, Facebook, TikTok, YouTube và Pinterest.",
+        imgPath: kpik,
+        githubLink: "https://github.com/dokyanh220/K-PIK-web",
+        demoLink: "",
+        date: "2026-04-24"
+    },
+    {
+        id: 9,
+        title: "ImageToText OCR",
+        description: "ImageToText là ứng dụng chuyển đổi hình ảnh sang văn bản và PDF, sử dụng Spring Boot và React, tích hợp OCR Tesseract.",
+        imgPath: ocr,
+        githubLink: "https://github.com/dokyanh220/ImageToText_OCR",
+        demoLink: "",
+        date: "2026-06-08"
+    }
 ];
+
+// --- CRUD helpers that mutate PROJECTS directly ---
+
+function persistProjects() {
+    localStorage.setItem('projects', JSON.stringify(PROJECTS));
+}
+
+export function addProject(project: IProject) {
+    PROJECTS.push(project);
+    persistProjects();
+}
+
+export function updateProject(id: number, data: Partial<IProject>) {
+    const idx = PROJECTS.findIndex(p => p.id === id);
+    if (idx !== -1) {
+        PROJECTS[idx] = { ...PROJECTS[idx], ...data };
+        persistProjects();
+    }
+}
+
+export function removeProject(id: number) {
+    const idx = PROJECTS.findIndex(p => p.id === id);
+    if (idx !== -1) {
+        PROJECTS.splice(idx, 1);
+        persistProjects();
+    }
+}
+
+// Load any previously persisted projects on app startup
+(function loadPersistedProjects() {
+    try {
+        const stored = localStorage.getItem('projects');
+        if (stored) {
+            const parsed: IProject[] = JSON.parse(stored);
+            PROJECTS.length = 0;           // clear the default entries
+            parsed.forEach(p => PROJECTS.push(p)); // fill with persisted data
+        }
+    } catch (e) {
+        console.error('Failed to load persisted projects', e);
+    }
+})();
 
 export const SKILLS_DATA = [
     'PHP',

@@ -20,18 +20,6 @@ const HomePage = () => {
         expRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    // Không cần render trên mobile luôn
-    function useIsMdUp() {
-        const [isMdUp, setIsMdUp] = useState(() => window.innerWidth >= 768);
-        useEffect(() => {
-            const handler = () => setIsMdUp(window.innerWidth >= 768);
-            window.addEventListener('resize', handler);
-            return () => window.removeEventListener('resize', handler);
-        }, []);
-        return isMdUp;
-    }
-    const isMdUp = useIsMdUp();
-
     return (
         <div className="homepage-screen">
             <div
@@ -56,7 +44,7 @@ const HomePage = () => {
                             />
                         </Col>
                         <Col md={7} className="p-0">
-                            {isMdUp && <HeroRight />}
+                            <HeroRight />
                         </Col>
                         <Col
                             xs={12}
