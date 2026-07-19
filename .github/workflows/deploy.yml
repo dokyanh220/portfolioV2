@@ -64,5 +64,5 @@ jobs:
             docker rm portfolio || true
             
             # Chạy container mới
-            # Đang map port 3000 của VPS vào port 80 của container (Nginx)
-            docker run -d --restart unless-stopped --name portfolio -p 3000:80 $IMAGE
+            # Đang map port 8080 của VPS vào port 80 của container (Nginx)
+            docker run -d --restart unless-stopped --name portfolio -p 8080:80 $IMAGE
