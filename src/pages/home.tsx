@@ -8,6 +8,7 @@ import ResizeButton from '../components/sections/resize.button';
 import { useTranslation } from 'react-i18next';
 import Divider from '../components/sections/divider';
 import Experience from '../components/sections/experience';
+import FeaturedProject from '../components/sections/featured-project';
 import Skill from '../components/sections/skill';
 import { useEffect, useRef, useState } from 'react';
 
@@ -67,6 +68,12 @@ const HomePage = () => {
             <section ref={expRef}>
                 <Container>
                     <Experience />
+                </Container>
+            </section>
+            <Divider />
+            <section>
+                <Container>
+                    <FeaturedProject />
                 </Container>
             </section>
             <Divider />

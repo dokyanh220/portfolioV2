@@ -7,6 +7,7 @@ import moji from 'assets/project/moji.png';
 import caro from 'assets/project/caro.png';
 import kpik from 'assets/project/kpik.png';
 import ocr from 'assets/project/ocr.png';
+import seachess from 'assets/project/seachess.jpg';
 
 export const APP_DATA = {
     YOUTUBE_URL: 'https://www.youtube.com/@dokyanh220',
@@ -158,6 +159,15 @@ export const PROJECTS: IProject[] = [
         githubLink: "https://github.com/dokyanh220/ImageToText_OCR",
         demoLink: "",
         date: "2026-06-08"
+    },
+    {
+        id: 10,
+        title: "SeaChess - Strategy Meets The Tide",
+        description: "Chinh phục đại dương cờ vua! Đấu online thời gian thực, leo hạng Elo, luyện tập với AI Stockfish và trở thành Grand Master trong cộng đồng SeaChess toàn cầu. Một ứng dụng đa nền tảng tuyệt đẹp.",
+        imgPath: seachess,
+        githubLink: "https://github.com/dokyanh220/SeaChess",
+        demoLink: "https://seachess.vercel.app",
+        date: "2026-07-19"
     }
 ];
 

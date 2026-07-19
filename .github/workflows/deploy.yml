@@ -1,0 +1,68 @@
+name: Docker CI/CD Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY: ghcr.io
+  # github.repository sẽ có dạng 'username/reponame'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Downcase Image Name
+        run: |
+          echo "IMAGE_NAME=${{ env.REGISTRY }}/${{ github.repository }}" | tr '[:upper:]' '[:lower:]' >> $GITHUB_ENV
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE_NAME }}:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Downcase Image Name
+        run: |
+          echo "IMAGE_NAME=${{ env.REGISTRY }}/${{ github.repository }}" | tr '[:upper:]' '[:lower:]' >> $GITHUB_ENV
+
+      - name: Execute SSH commands on VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 103.166.182.39
+          username: root
+          port: 24700
+          password: ${{ secrets.VPS_PASSWORD }}
+          script: |
+            IMAGE=${{ env.IMAGE_NAME }}:latest
+            
+            # Kéo (pull) image mới nhất về VPS. 
+            # (Nếu Repository của bạn là Private, VPS sẽ cần docker login trước. Nếu là Public thì có thể pull thoải mái).
+            docker pull $IMAGE
+            
+            # Dừng và xoá container cũ nếu có
+            docker stop portfolio || true
+            docker rm portfolio || true
+            
+            # Chạy container mới
+            # Đang map port 3000 của VPS vào port 80 của container (Nginx)
+            docker run -d --restart unless-stopped --name portfolio -p 3000:80 $IMAGE
