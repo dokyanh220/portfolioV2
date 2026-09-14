@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from 'pages/home';
 import ProjectPage from '@/pages/project';
 import AboutPage from '@/pages/about';
+import ForUPage from 'pages/lovelove';
 import { AppContextProvider } from 'components/context/app.context';
 import '@/i18n';
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             }
         ],
     },
+    {
+        path: '/for-u',
+        element: <ForUPage />,
+    }
 ]);
 
 createRoot(document.getElementById('root')!).render(
